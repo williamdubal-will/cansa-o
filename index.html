@@ -2,228 +2,1234 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Teste: Da Expectativa à Sociedade do Cansaço</title>
 <style>
+:root {
+  --primary: #2c3e50;
+  --secondary: #3498db;
+  --success: #27ae60;
+  --warning: #f39c12;
+  --danger: #e74c3c;
+  --light: #ecf0f1;
+  --dark: #2c3e50;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  margin: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+  padding: 20px;
 }
-h2 {
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+
+.header {
+  background: var(--primary);
+  color: white;
+  padding: 30px;
   text-align: center;
-  color: #222;
 }
-fieldset {
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
+
+.header h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.warning {
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
   padding: 15px;
-  background-color: #fff;
-  border-radius: 6px;
+  margin: 20px;
+  border-radius: 5px;
+  font-size: 14px;
 }
-legend {
+
+.section {
+  padding: 25px;
+  border-bottom: 1px solid #eee;
+}
+
+.section-title {
+  color: var(--primary);
+  margin-bottom: 20px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.question {
+  margin-bottom: 25px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border-left: 4px solid var(--secondary);
+}
+
+.question-text {
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--dark);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.scale-info {
+  background: #e3f2fd;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 5px;
+  background: white;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.option:hover {
+  border-color: var(--secondary);
+  background: #f0f4ff;
+}
+
+.option.selected {
+  border-color: var(--secondary);
+  background: #e3f2fd;
+  transform: scale(1.05);
+}
+
+.option-number {
+  font-size: 16px;
   font-weight: bold;
-  color: #444;
+  color: var(--primary);
+  margin-bottom: 4px;
 }
-label {
-  display: block;
-  margin: 8px 0;
+
+.option-label {
+  font-size: 10px;
+  color: #666;
+  line-height: 1.2;
 }
-button {
-  background-color: #2e7d32;
+
+.btn {
+  background: var(--secondary);
   color: white;
   border: none;
-  padding: 10px 15px;
+  padding: 15px 30px;
+  border-radius: 8px;
   font-size: 16px;
-  border-radius: 6px;
   cursor: pointer;
+  transition: background 0.3s ease;
+  margin: 20px;
+  display: block;
+  width: calc(100% - 40px);
 }
-button:hover {
-  background-color: #1b5e20;
+
+.btn:hover {
+  background: #2980b9;
 }
-#resultado {
-  margin-top: 25px;
+
+.btn:disabled {
+  background: #bdc3c7;
+  cursor: not-allowed;
+}
+
+.result-screen {
+  display: none;
+  padding: 30px;
+}
+
+.result-category {
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.low {
+  background: #d4edda;
+  border: 2px solid #c3e6cb;
+}
+
+.medium {
+  background: #fff3cd;
+  border: 2px solid #ffeaa7;
+}
+
+.high {
+  background: #f8d7da;
+  border: 2px solid #f5c6cb;
+}
+
+.tips {
+  background: #e3f2fd;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.tips h4 {
+  color: var(--primary);
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tips ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.tips li {
+  padding: 8px 0;
+  border-bottom: 1px solid #bbdefb;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.tips li:last-child {
+  border-bottom: none;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #ecf0f1;
+  border-radius: 4px;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--secondary);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.emoji {
+  font-size: 20px;
+}
+
+.status-message {
+  text-align: center;
+  padding: 10px;
+  margin: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.status-complete {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-incomplete {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.conviva-quote {
+  background: #e8f5e8;
   padding: 15px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: 8px;
+  margin: 15px 0;
+  border-left: 4px solid #27ae60;
+  font-style: italic;
 }
 </style>
 </head>
 <body>
 
-<h2>Teste: Da Expectativa à Sociedade do Cansaço</h2>
-<p>Responda de acordo com o quanto cada afirmação combina com sua experiência. (1 = Nunca, 5 = Sempre)</p>
+<div class="container">
+  <!-- Tela do Questionário -->
+  <div id="questionario">
+    <div class="header">
+      <h1>🌱 Da Expectativa à Sociedade do Cansaço</h1>
+      <p>Um teste reflexivo baseado em Byung-Chul Han e no programa Conviva SP</p>
+    </div>
+    
+    <div class="warning">
+      <strong>💡 Importante:</strong> Este é um instrumento de <strong>autoreflexão</strong> e não substitui 
+      avaliação profissional. As informações visam promover o autocuidado e o acolhimento emocional.
+    </div>
 
-<form id="teste">
+    <form id="testeForm">
+      <!-- Bloco 1: Expectativa vs Realidade -->
+      <div class="section">
+        <h2 class="section-title">1️⃣ Expectativa vs Realidade</h2>
+        <div class="scale-info">
+          <strong>Escala: </strong>1 (Nunca) • 2 (Raramente) • 3 (Às vezes) • 4 (Frequentemente) • 5 (Sempre)
+        </div>
+        
+        <div class="question" data-category="expectativa">
+          <div class="question-text">1. Costumo me comparar com colegas que parecem ter mais sucesso</div>
+          <div class="options">
+            <div class="option" data-value="1">
+              <div class="option-number">1</div>
+              <div class="option-label">Nunca</div>
+            </div>
+            <div class="option" data-value="2">
+              <div class="option-number">2</div>
+              <div class="option-label">Raramente</div>
+            </div>
+            <div class="option" data-value="3">
+              <div class="option-number">3</div>
+              <div class="option-label">Às vezes</div>
+            </div>
+            <div class="option" data-value="4">
+              <div class="option-number">4</div>
+              <div class="option-label">Frequentemente</div>
+            </div>
+            <div class="option" data-value="5">
+              <div class="option-number">5</div>
+              <div class="option-label">Sempre</div>
+            </div>
+          </div>
+        </div>
 
-  <fieldset>
-    <legend>1️⃣ Expectativa vs Realidade</legend>
-    <label>1. Costumo me comparar com colegas que parecem ter mais sucesso.
-      <input type="number" name="b1" min="1" max="5" required>
-    </label>
-    <label>2. Tento parecer bem nas redes sociais mesmo quando não estou.
-      <input type="number" name="b1" min="1" max="5" required>
-    </label>
-    <label>3. Tenho dificuldade de aceitar meus erros.
-      <input type="number" name="b1" min="1" max="5" required>
-    </label>
-    <label>4. Sinto que estou sempre devendo algo (tempo, resultado, desempenho).
-      <input type="number" name="b1" min="1" max="5" required>
-    </label>
-    <label>5. Tenho medo de decepcionar minha família ou professores.
-      <input type="number" name="b1" min="1" max="5" required>
-    </label>
-  </fieldset>
+        <div class="question" data-category="expectativa">
+          <div class="question-text">2. Tento parecer bem nas redes sociais mesmo quando não estou</div>
+          <div class="options">
+            <div class="option" data-value="1">
+              <div class="option-number">1</div>
+              <div class="option-label">Nunca</div>
+            </div>
+            <div class="option" data-value="2">
+              <div class="option-number">2</div>
+              <div class="option-label">Raramente</div>
+            </div>
+            <div class="option" data-value="3">
+              <div class="option-number">3</div>
+              <div class="option-label">Às vezes</div>
+            </div>
+            <div class="option" data-value="4">
+              <div class="option-number">4</div>
+              <div class="option-label">Frequentemente</div>
+            </div>
+            <div class="option" data-value="5">
+              <div class="option-number">5</div>
+              <div class="option-label">Sempre</div>
+            </div>
+          </div>
+        </div>
 
-  <fieldset>
-    <legend>2️⃣ Sociedade do Cansaço</legend>
-    <label>6. Mesmo ao terminar uma tarefa, penso no que ainda falta fazer.
-      <input type="number" name="b2" min="1" max="5" required>
-    </label>
-    <label>7. Tenho dificuldade de descansar ou “desligar a mente”.
-      <input type="number" name="b2" min="1" max="5" required>
-    </label>
-    <label>8. Sinto culpa quando tiro um tempo para mim.
-      <input type="number" name="b2" min="1" max="5" required>
-    </label>
-    <label>9. Acho que se não for produtivo, estou perdendo tempo.
-      <input type="number" name="b2" min="1" max="5" required>
-    </label>
-    <label>10. Tenho a sensação de estar sempre cansado.
-      <input type="number" name="b2" min="1" max="5" required>
-    </label>
-  </fieldset>
+        <div class="question" data-category="expectativa">
+          <div class="question-text">3. Tenho dificuldade de aceitar meus erros</div>
+          <div class="options">
+            <div class="option" data-value="1">
+              <div class="option-number">1</div>
+              <div class="option-label">Nunca</div>
+            </div>
+            <div class="option" data-value="2">
+              <div class="option-number">2</div>
+              <div class="option-label">Raramente</div>
+            </div>
+            <div class="option" data-value="3">
+              <div class="option-number">3</div>
+              <div class="option-label">Às vezes</div>
+            </div>
+            <div class="option" data-value="4">
+              <div class="option-number">4</div>
+              <div class="option-label">Frequentemente</div>
+            </div>
+            <div class="option" data-value="5">
+              <div class="option-number">5</div>
+              <div class="option-label">Sempre</div>
+            </div>
+          </div>
+        </div>
 
-  <fieldset>
-    <legend>3️⃣ Fontes de Pressão</legend>
-    <label>11. As cobranças que mais sinto vêm de mim mesmo.
-      <input type="number" name="b3" min="1" max="5" required>
-    </label>
-    <label>12. As cobranças familiares pesam sobre mim.
-      <input type="number" name="b3" min="1" max="5" required>
-    </label>
-    <label>13. As exigências da escola me deixam ansioso.
-      <input type="number" name="b3" min="1" max="5" required>
-    </label>
-    <label>14. Sinto-me cobrado nas redes sociais para mostrar sucesso.
-      <input type="number" name="b3" min="1" max="5" required>
-    </label>
-    <label>15. Tenho medo de ser julgado quando não atinjo metas.
-      <input type="number" name="b3" min="1" max="5" required>
-    </label>
-  </fieldset>
+        <div class="question" data-category="expectativa">
+          <div class="question-text">4. Sinto que estou sempre devendo algo (tempo, resultado, desempenho)</div>
+          <div class="options">
+            <div class="option" data-value="1">
+              <div class="option-number">1</div>
+              <div class="option-label">Nunca</div>
+            </div>
+            <div class="option" data-value="2">
+              <div class="option-number">2</div>
+              <div class="option-label">Raramente</div>
+            </div>
+            <div class="option" data-value="3">
+              <div class="option-number">3</div>
+              <div class="option-label">Às vezes</div>
+            </div>
+            <div class="option" data-value="4">
+              <div class="option-number">4</div>
+              <div class="option-label">Frequentemente</div>
+            </div>
+            <div class="option" data-value="5">
+              <div class="option-number">5</div>
+              <div class="option-label">Sempre</div>
+            </div>
+          </div>
+        </div>
 
-  <fieldset>
-    <legend>4️⃣ Sinais de Esgotamento</legend>
-    <label>16. Tenho sentido falta de vontade nas coisas que antes gostava.
-      <input type="number" name="b4" min="1" max="5" required>
-    </label>
-    <label>17. Tenho me sentido mais irritado ou impaciente.
-      <input type="number" name="b4" min="1" max="5" required>
-    </label>
-    <label>18. Tenho dificuldade para dormir ou relaxar.
-      <input type="number" name="b4" min="1" max="5" required>
-    </label>
-    <label>19. Tenho preocupações sem motivo claro.
-      <input type="number" name="b4" min="1" max="5" required>
-    </label>
-    <label>20. Sinto-me sem energia física ou emocional.
-      <input type="number" name="b4" min="1" max="5" required>
-    </label>
-  </fieldset>
+        <div class="question" data-category="expectativa">
+          <div class="question-text">5. Tenho medo de decepcionar minha família ou professores</div>
+          <div class="options">
+            <div class="option" data-value="1">
+              <div class="option-number">1</div>
+              <div class="option-label">Nunca</div>
+            </div>
+            <div class="option" data-value="2">
+              <div class="option-number">2</div>
+              <div class="option-label">Raramente</div>
+            </div>
+            <div class="option" data-value="3">
+              <div class="option-number">3</div>
+              <div class="option-label">Às vezes</div>
+            </div>
+            <div class="option" data-value="4">
+              <div class="option-number">4</div>
+              <div class="option-label">Frequentemente</div>
+            </div>
+            <div class="option" data-value="5">
+              <div class="option-number">5</div>
+              <div class="option-label">Sempre</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <fieldset>
-    <legend>5️⃣ Autocuidado</legend>
-    <label>21. Tenho alguma forma de relaxar ou aliviar o estresse.
-      <input type="number" name="b5" min="1" max="5" required>
-    </label>
-    <label>22. Tenho alguém com quem conversar quando não estou bem.
-      <input type="number" name="b5" min="1" max="5" required>
-    </label>
-    <label>23. Percebo quando preciso fazer uma pausa.
-      <input type="number" name="b5" min="1" max="5" required>
-    </label>
-    <label>24. Tento cuidar da minha mente e corpo, não só das notas.
-      <input type="number" name="b5" min="1" max="5" required>
-    </label>
-    <label>25. Consigo equilibrar estudo, descanso e lazer.
-      <input type="number" name="b5" min="1" max="5" required>
-    </label>
-  </fieldset>
+      <!-- Bloco 2: Sociedade do Cansaço -->
+      <div class="section">
+        <h2 class="section-title">2️⃣ Sociedade do Cansaço</h2>
+        
+        <div class="question" data-category="cansaco">
+          <div class="question-text">6. Mesmo ao terminar uma tarefa, penso no que ainda falta fazer</div>
+          <div class="options">
+            <div class="option" data-value="1">
+              <div class="option-number">1</div>
+              <div class="option-label">Nunca</div>
+            </div>
+            <div class="option" data-value="2">
+              <div class="option-number">2</div>
+              <div class="option-label">Raramente</div>
+            </div>
+            <div class="option" data-value="3">
+              <div class="option-number">3</div>
+              <div class="option-label">Às vezes</div>
+            </div>
+            <div class="option" data-value="4">
+              <div class="option-number">4</div>
+              <div class="option-label">Frequentemente</div>
+            </div>
+            <div class="option" data-value="5">
+              <div class="option-number">5</div>
+              <div class="option-label">Sempre</div>
+            </div>
+          </div>
+        </div>
 
-  <button type="button" onclick="calcular()">Ver resultado</button>
-</form>
+        <div class="question" data-category="cansaco">
+          <div class="question-text">7. Tenho dificuldade de descansar ou "desligar a mente"</div>
+          <div class="options">
+            <div class="option" data-value="1">
+              <div class="option-number">1</div>
+              <div class="option-label">Nunca</div>
+            </div>
+            <div class="option" data-value="2">
+              <div class="option-number">2</div>
+              <div class="option-label">Raramente</div>
+            </div>
+            <div class="option" data-value="3">
+              <div class="option-number">3</div>
+              <div class="option-label">Às vezes</div>
+            </div>
+            <div class="option" data-value="4">
+              <div class="option-number">4</div>
+              <div class="option-label">Frequentemente</div>
+            </div>
+            <div class="option" data-value="5">
+              <div class="option-number">5</div>
+              <div class="option-label">Sempre</div>
+            </div>
+          </div>
+        </div>
 
-<div id="resultado"></div>
+        <div class="question" data-category="cansaco">
+          <div class="question-text">8. Sinto culpa quando tiro um tempo para mim</div>
+          <div class="options">
+            <div class="option" data-value="1">
+              <div class="option-number">1</div>
+              <div class="option-label">Nunca</div>
+            </div>
+            <div class="option" data-value="2">
+              <div class="option-number">2</div>
+              <div class="option-label">Raramente</div>
+            </div>
+            <div class="option" data-value="3">
+              <div class="option-number">3</div>
+              <div class="option-label">Às vezes</div>
+            </div>
+            <div class="option" data-value="4">
+              <div class="option-number">4</div>
+              <div class="option-label">Frequentemente</div>
+            </div>
+            <div class="option" data-value="5">
+              <div class="option-number">5</div>
+              <div class="option-label">Sempre</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="question" data-category="cansaco">
+          <div class="question-text">9. Acho que se não for produtivo, estou perdendo tempo</div>
+          <div class="options">
+            <div class="option" data-value="1">
+              <div class="option-number">1</div>
+              <div class="option-label">Nunca</div>
+            </div>
+            <div class="option" data-value="2">
+              <div class="option-number">2</div>
+              <div class="option-label">Raramente</div>
+            </div>
+            <div class="option" data-value="3">
+              <div class="option-number">3</div>
+              <div class="option-label">Às vezes</div>
+            </div>
+            <div class="option" data-value="4">
+              <div class="option-number">4</div>
+              <div class="option-label">Frequentemente</div>
+            </div>
+            <div class="option" data-value="5">
+              <div class="option-number">5</div>
+              <div class="option-label">Sempre</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="question" data-category="cansaco">
+          <div class="question-text">10. Tenho a sensação de estar sempre cansado</div>
+          <div class="options">
+            <div class="option" data-value="1">
+              <div class="option-number">1</div>
+              <div class="option-label">Nunca</div>
+            </div>
+            <div class="option" data-value="2">
+              <div class="option-number">2</div>
+              <div class="option-label">Raramente</div>
+            </div>
+            <div class="option" data-value="3">
+              <div class="option-number">3</div>
+              <div class="option-label">Às vezes</div>
+            </div>
+            <div class="option" data-value="4">
+              <div class="option-number">4</div>
+              <div class="option-label">Frequentemente</div>
+            </div>
+            <div class="option" data-value="5">
+              <div class="option-number">5</div>
+              <div class="option-label">Sempre</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bloco 3: Fontes de Pressão -->
+      <div class="section">
+        <h2 class="section-title">3️⃣ Fontes de Pressão</h2>
+        
+        <div class="question" data-category="pressao">
+          <div class="question-text">11. As cobranças que mais sinto vêm de mim mesmo</div>
+          <div class="options">
+            <div class="option" data-value="1">
+              <div class="option-number">1</div>
+              <div class="option-label">Nunca</div>
+            </div>
+            <div class="option" data-value="2">
+              <div class="option-number">2</div>
+              <div class="option-label">Raramente</div>
+            </div>
+            <div class="option" data-value="3">
+              <div class="option-number">3</div>
+              <div class="option-label">Às vezes</div>
+            </div>
+            <div class="option" data-value="4">
+              <div class="option-number">4</div>
+              <div class="option-label">Frequentemente</div>
+            </div>
+            <div class="option" data-value="5">
+              <div class="option-number">5</div>
+              <div class="option-label">Sempre</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="question" data-category="pressao">
+          <div class="question-text">12. As cobranças familiares pesam sobre mim</div>
+          <div class="options">
+            <div class="option" data-value="1">
+              <div class="option-number">1</div>
+              <div class="option-label">Nunca</div>
+            </div>
+            <div class="option" data-value="2">
+              <div class="option-number">2</div>
+              <div class="option-label">Raramente</div>
+            </div>
+            <div class="option" data-value="3">
+              <div class="option-number">3</div>
+              <div class="option-label">Às vezes</div>
+            </div>
+            <div class="option" data-value="4">
+              <div class="option-number">4</div>
+              <div class="option-label">Frequentemente</div>
+            </div>
+            <div class="option" data-value="5">
+              <div class="option-number">5</div>
+              <div class="option-label">Sempre</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="question" data-category="pressao">
+          <div class="question-text">13. As exigências da escola me deixam ansioso</div>
+          <div class="options">
+            <div class="option" data-value="1">
+              <div class="option-number">1</div>
+              <div class="option-label">Nunca</div>
+            </div>
+            <div class="option" data-value="2">
+              <div class="option-number">2</div>
+              <div class="option-label">Raramente</div>
+            </div>
+            <div class="option" data-value="3">
+              <div class="option-number">3</div>
+              <div class="option-label">Às vezes</div>
+            </div>
+            <div class="option" data-value="4">
+              <div class="option-number">4</div>
+              <div class="option-label">Frequentemente</div>
+            </div>
+            <div class="option" data-value="5">
+              <div class="option-number">5</div>
+              <div class="option-label">Sempre</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="question" data-category="pressao">
+          <div class="question-text">14. Sinto-me cobrado nas redes sociais para mostrar sucesso</div>
+          <div class="options">
+            <div class="option" data-value="1">
+              <div class="option-number">1</div>
+              <div class="option-label">Nunca</div>
+            </div>
+            <div class="option" data-value="2">
+              <div class="option-number">2</div>
+              <div class="option-label">Raramente</div>
+            </div>
+            <div class="option" data-value="3">
+              <div class="option-number">3</div>
+              <div class="option-label">Às vezes</div>
+            </div>
+            <div class="option" data-value="4">
+              <div class="option-number">4</div>
+              <div class="option-label">Frequentemente</div>
+            </div>
+            <div class="option" data-value="5">
+              <div class="option-number">5</div>
+              <div class="option-label">Sempre</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="question" data-category="pressao">
+          <div class="question-text">15. Tenho medo de ser julgado quando não atinjo metas</div>
+          <div class="options">
+            <div class="option" data-value="1">
+              <div class="option-number">1</div>
+              <div class="option-label">Nunca</div>
+            </div>
+            <div class="option" data-value="2">
+              <div class="option-number">2</div>
+              <div class="option-label">Raramente</div>
+            </div>
+            <div class="option" data-value="3">
+              <div class="option-number">3</div>
+              <div class="option-label">Às vezes</div>
+            </div>
+            <div class="option" data-value="4">
+              <div class="option-number">4</div>
+              <div class="option-label">Frequentemente</div>
+            </div>
+            <div class="option" data-value="5">
+              <div class="option-number">5</div>
+              <div class="option-label">Sempre</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bloco 4: Sinais de Esgotamento -->
+      <div class="section">
+        <h2 class="section-title">4️⃣ Sinais de Esgotamento</h2>
+        
+        <div class="question" data-category="esgotamento">
+          <div class="question-text">16. Tenho sentido falta de vontade nas coisas que antes gostava</div>
+          <div class="options">
+            <div class="option" data-value="1">
+              <div class="option-number">1</div>
+              <div class="option-label">Nunca</div>
+            </div>
+            <div class="option" data-value="2">
+              <div class="option-number">2</div>
+              <div class="option-label">Raramente</div>
+            </div>
+            <div class="option" data-value="3">
+              <div class="option-number">3</div>
+              <div class="option-label">Às vezes</div>
+            </div>
+            <div class="option" data-value="4">
+              <div class="option-number">4</div>
+              <div class="option-label">Frequentemente</div>
+            </div>
+            <div class="option" data-value="5">
+              <div class="option-number">5</div>
+              <div class="option-label">Sempre</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="question" data-category="esgotamento">
+          <div class="question-text">17. Tenho me sentido mais irritado ou impaciente</div>
+          <div class="options">
+            <div class="option" data-value="1">
+              <div class="option-number">1</div>
+              <div class="option-label">Nunca</div>
+            </div>
+            <div class="option" data-value="2">
+              <div class="option-number">2</div>
+              <div class="option-label">Raramente</div>
+            </div>
+            <div class="option" data-value="3">
+              <div class="option-number">3</div>
+              <div class="option-label">Às vezes</div>
+            </div>
+            <div class="option" data-value="4">
+              <div class="option-number">4</div>
+              <div class="option-label">Frequentemente</div>
+            </div>
+            <div class="option" data-value="5">
+              <div class="option-number">5</div>
+              <div class="option-label">Sempre</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="question" data-category="esgotamento">
+          <div class="question-text">18. Tenho dificuldade para dormir ou relaxar</div>
+          <div class="options">
+            <div class="option" data-value="1">
+              <div class="option-number">1</div>
+              <div class="option-label">Nunca</div>
+            </div>
+            <div class="option" data-value="2">
+              <div class="option-number">2</div>
+              <div class="option-label">Raramente</div>
+            </div>
+            <div class="option" data-value="3">
+              <div class="option-number">3</div>
+              <div class="option-label">Às vezes</div>
+            </div>
+            <div class="option" data-value="4">
+              <div class="option-number">4</div>
+              <div class="option-label">Frequentemente</div>
+            </div>
+            <div class="option" data-value="5">
+              <div class="option-number">5</div>
+              <div class="option-label">Sempre</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="question" data-category="esgotamento">
+          <div class="question-text">19. Tenho preocupações sem motivo claro</div>
+          <div class="options">
+            <div class="option" data-value="1">
+              <div class="option-number">1</div>
+              <div class="option-label">Nunca</div>
+            </div>
+            <div class="option" data-value="2">
+              <div class="option-number">2</div>
+              <div class="option-label">Raramente</div>
+            </div>
+            <div class="option" data-value="3">
+              <div class="option-number">3</div>
+              <div class="option-label">Às vezes</div>
+            </div>
+            <div class="option" data-value="4">
+              <div class="option-number">4</div>
+              <div class="option-label">Frequentemente</div>
+            </div>
+            <div class="option" data-value="5">
+              <div class="option-number">5</div>
+              <div class="option-label">Sempre</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="question" data-category="esgotamento">
+          <div class="question-text">20. Sinto-me sem energia física ou emocional</div>
+          <div class="options">
+            <div class="option" data-value="1">
+              <div class="option-number">1</div>
+              <div class="option-label">Nunca</div>
+            </div>
+            <div class="option" data-value="2">
+              <div class="option-number">2</div>
+              <div class="option-label">Raramente</div>
+            </div>
+            <div class="option" data-value="3">
+              <div class="option-number">3</div>
+              <div class="option-label">Às vezes</div>
+            </div>
+            <div class="option" data-value="4">
+              <div class="option-number">4</div>
+              <div class="option-label">Frequentemente</div>
+            </div>
+            <div class="option" data-value="5">
+              <div class="option-number">5</div>
+              <div class="option-label">Sempre</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bloco 5: Autocuidado -->
+      <div class="section">
+        <h2 class="section-title">5️⃣ Autocuidado</h2>
+        
+        <div class="question" data-category="autocuidado">
+          <div class="question-text">21. Tenho alguma forma de relaxar ou aliviar o estresse</div>
+          <div class="options">
+            <div class="option" data-value="1">
+              <div class="option-number">1</div>
+              <div class="option-label">Nunca</div>
+            </div>
+            <div class="option" data-value="2">
+              <div class="option-number">2</div>
+              <div class="option-label">Raramente</div>
+            </div>
+            <div class="option" data-value="3">
+              <div class="option-number">3</div>
+              <div class="option-label">Às vezes</div>
+            </div>
+            <div class="option" data-value="4">
+              <div class="option-number">4</div>
+              <div class="option-label">Frequentemente</div>
+            </div>
+            <div class="option" data-value="5">
+              <div class="option-number">5</div>
+              <div class="option-label">Sempre</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="question" data-category="autocuidado">
+          <div class="question-text">22. Tenho alguém com quem conversar quando não estou bem</div>
+          <div class="options">
+            <div class="option" data-value="1">
+              <div class="option-number">1</div>
+              <div class="option-label">Nunca</div>
+            </div>
+            <div class="option" data-value="2">
+              <div class="option-number">2</div>
+              <div class="option-label">Raramente</div>
+            </div>
+            <div class="option" data-value="3">
+              <div class="option-number">3</div>
+              <div class="option-label">Às vezes</div>
+            </div>
+            <div class="option" data-value="4">
+              <div class="option-number">4</div>
+              <div class="option-label">Frequentemente</div>
+            </div>
+            <div class="option" data-value="5">
+              <div class="option-number">5</div>
+              <div class="option-label">Sempre</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="question" data-category="autocuidado">
+          <div class="question-text">23. Percebo quando preciso fazer uma pausa</div>
+          <div class="options">
+            <div class="option" data-value="1">
+              <div class="option-number">1</div>
+              <div class="option-label">Nunca</div>
+            </div>
+            <div class="option" data-value="2">
+              <div class="option-number">2</div>
+              <div class="option-label">Raramente</div>
+            </div>
+            <div class="option" data-value="3">
+              <div class="option-number">3</div>
+              <div class="option-label">Às vezes</div>
+            </div>
+            <div class="option" data-value="4">
+              <div class="option-number">4</div>
+              <div class="option-label">Frequentemente</div>
+            </div>
+            <div class="option" data-value="5">
+              <div class="option-number">5</div>
+              <div class="option-label">Sempre</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="question" data-category="autocuidado">
+          <div class="question-text">24. Tento cuidar da minha mente e corpo, não só das notas</div>
+          <div class="options">
+            <div class="option" data-value="1">
+              <div class="option-number">1</div>
+              <div class="option-label">Nunca</div>
+            </div>
+            <div class="option" data-value="2">
+              <div class="option-number">2</div>
+              <div class="option-label">Raramente</div>
+            </div>
+            <div class="option" data-value="3">
+              <div class="option-number">3</div>
+              <div class="option-label">Às vezes</div>
+            </div>
+            <div class="option" data-value="4">
+              <div class="option-number">4</div>
+              <div class="option-label">Frequentemente</div>
+            </div>
+            <div class="option" data-value="5">
+              <div class="option-number">5</div>
+              <div class="option-label">Sempre</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="question" data-category="autocuidado">
+          <div class="question-text">25. Consigo equilibrar estudo, descanso e lazer</div>
+          <div class="options">
+            <div class="option" data-value="1">
+              <div class="option-number">1</div>
+              <div class="option-label">Nunca</div>
+            </div>
+            <div class="option" data-value="2">
+              <div class="option-number">2</div>
+              <div class="option-label">Raramente</div>
+            </div>
+            <div class="option" data-value="3">
+              <div class="option-number">3</div>
+              <div class="option-label">Às vezes</div>
+            </div>
+            <div class="option" data-value="4">
+              <div class="option-number">4</div>
+              <div class="option-label">Frequentemente</div>
+            </div>
+            <div class="option" data-value="5">
+              <div class="option-number">5</div>
+              <div class="option-label">Sempre</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="statusMessage" class="status-message status-incomplete">
+        ⚠️ Responda todas as 25 questões para ver seus resultados
+      </div>
+
+      <button type="button" class="btn" id="calcularBtn" disabled>Ver Meus Resultados</button>
+    </form>
+  </div>
+
+  <!-- Tela de Resultados -->
+  <div id="resultado" class="result-screen">
+    <div class="header">
+      <h1>📊 Seu Mapa de Bem-estar</h1>
+      <p>Resultados baseados em Byung-Chul Han e no programa Conviva SP</p>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">🎯 Análise do Seu Perfil</h2>
+      <div id="resultContent"></div>
+      
+      <div class="conviva-quote">
+        "Acolher significa apoiar, amparar. O acolhimento aproxima as pessoas, estabelece conexões e vínculos, baseados na confiança. Acolher é mostrar-se aberto ao outro e permitir que ele também se abra." 
+        <br><strong>- Programa Conviva SP</strong>
+      </div>
+      
+      <div class="tips">
+        <h4>💡 Estratégias de Acolhimento Emocional - Conviva SP</h4>
+        <ul>
+          <li>🎯 <strong>Mapa da Empatia:</strong> Pratique se colocar no lugar do outro para compreender diferentes perspectivas</li>
+          <li>🌳 <strong>Árvore Emocional:</strong> Identifique e nomeie regularmente suas emoções e estados internos</li>
+          <li>👂 <strong>Escuta Ativa:</strong> Compartilhe seus sentimentos e também ouça genuinamente os outros</li>
+          <li>⏰ <strong>Pausas Conscientes:</strong> Reserve momentos intencionais de descanso sem culpa</li>
+          <li>🎭 <strong>Autoconhecimento:</strong> Reconheça seus limites e celebre suas conquistas pessoais</li>
+          <li>🤝 <strong>Rede de Apoio:</strong> Conte com professores, família e amigos quando precisar</li>
+          <li>🌱 <strong>Cuidado Integral:</strong> Lembre-se que você é mais que suas notas e desempenhos</li>
+        </ul>
+      </div>
+
+      <div style="margin-top: 20px; padding: 15px; background: #e8f5e8; border-radius: 8px;">
+        <h4>🌱 Reflexão Final</h4>
+        <p>Na sociedade do cansaço descrita por Byung-Chul Han, <strong>o explorador é ao mesmo tempo explorado</strong>. 
+        Reconhecer essa dinâmica é o primeiro passo para construir uma relação mais saudável com suas cobranças.</p>
+        <p style="margin-top: 10px; font-size: 14px; color: #666;">
+          <strong>Procure ajuda quando necessário:</strong> Converse com seus professores, coordenadores ou 
+          profissionais de saúde se sentir que precisa de mais suporte.
+        </p>
+      </div>
+
+      <button type="button" class="btn" onclick="voltarQuestionario()" style="margin-top: 20px;">
+        Refazer Teste
+      </button>
+    </div>
+  </div>
+</div>
 
 <script>
-function calcular() {
-  const form = document.forms['teste'];
-  let blocos = { b1:0, b2:0, b3:0, b4:0, b5:0 };
-  let counts = { b1:0, b2:0, b3:0, b4:0, b5:0 };
+// Array para armazenar as respostas
+let respostas = {
+  expectativa: [],
+  cansaco: [],
+  pressao: [],
+  esgotamento: [],
+  autocuidado: []
+};
 
-  for (let el of form.elements) {
-    if (el.name && el.value) {
-      blocos[el.name] += parseInt(el.value);
-      counts[el.name]++;
+// Controle de seleção das opções
+document.querySelectorAll('.option').forEach(option => {
+  option.addEventListener('click', function() {
+    const question = this.closest('.question');
+    const category = question.getAttribute('data-category');
+    const questionsInCategory = Array.from(question.parentNode.querySelectorAll('.question[data-category="' + category + '"]'));
+    const questionIndex = questionsInCategory.indexOf(question);
+    
+    // Remove seleção anterior na mesma pergunta
+    question.querySelectorAll('.option').forEach(opt => {
+      opt.classList.remove('selected');
+    });
+    
+    // Adiciona seleção atual
+    this.classList.add('selected');
+    
+    // Armazena a resposta
+    const value = parseInt(this.getAttribute('data-value'));
+    respostas[category][questionIndex] = value;
+    
+    // Verifica se todas as questões foram respondidas
+    verificarCompletude();
+  });
+});
+
+function verificarCompletude() {
+  const totalQuestions = document.querySelectorAll('.question').length;
+  let answeredCount = 0;
+  
+  // Conta questões respondidas
+  document.querySelectorAll('.question').forEach(question => {
+    if (question.querySelector('.option.selected')) {
+      answeredCount++;
     }
+  });
+  
+  const btn = document.getElementById('calcularBtn');
+  const statusMessage = document.getElementById('statusMessage');
+  
+  if (answeredCount === totalQuestions) {
+    btn.disabled = false;
+    statusMessage.textContent = "✅ Todas as questões respondidas! Clique no botão para ver seus resultados.";
+    statusMessage.className = "status-message status-complete";
+  } else {
+    btn.disabled = true;
+    statusMessage.textContent = `⚠️ Responda todas as questões para ver seus resultados (${answeredCount}/${totalQuestions} respondidas)`;
+    statusMessage.className = "status-message status-incomplete";
   }
+}
 
-  let texto = "";
-  for (let b in blocos) {
-    let media = blocos[b];
-    if (media <= 13) {
-      texto += `<p><b>${titulo(b)}</b>: 🟢 Equilíbrio saudável.<br>${mensagemVerde(b)}</p>`;
-    } else if (media <= 20) {
-      texto += `<p><b>${titulo(b)}</b>: 🟡 Sinais de alerta.<br>${mensagemAmarela(b)}</p>`;
-    } else {
-      texto += `<p><b>${titulo(b)}</b>: 🔴 Sinais de sobrecarga.<br>${mensagemVermelha(b)}</p>`;
-    }
+function calcularResultados() {
+  // Calcula médias para cada categoria
+  const mediaExpectativa = calcularMedia(respostas.expectativa);
+  const mediaCansaco = calcularMedia(respostas.cansaco);
+  const mediaPressao = calcularMedia(respostas.pressao);
+  const mediaEsgotamento = calcularMedia(respostas.esgotamento);
+  const mediaAutocuidado = calcularMedia(respostas.autocuidado);
+  
+  // Gera resultado
+  exibirResultados(mediaExpectativa, mediaCansaco, mediaPressao, mediaEsgotamento, mediaAutocuidado);
+}
+
+function calcularMedia(arr) {
+  if (arr.length === 0) return 0;
+  const sum = arr.reduce((a, b) => a + b, 0);
+  return (sum / (arr.length * 5)) * 100; // Converte para porcentagem
+}
+
+function exibirResultados(exp, can, pre, esg, aut) {
+  let resultadoHTML = '';
+  
+  // Expectativa vs Realidade
+  resultadoHTML += criarCategoria(
+    '🎯 Expectativa vs Realidade',
+    exp,
+    'Como você lida com comparações sociais e perfeccionismo',
+    [
+      'Você mantém uma relação saudável entre expectativas e realidade, aceitando suas imperfeições',
+      'Há momentos em que as comparações podem afetar sua autoimagem. Tente valorizar mais sua trajetória única',
+      'A busca por perfeição pode estar gerando frustração. Lembre-se: cada pessoa tem seu ritmo e jornada'
+    ]
+  );
+  
+  // Sociedade do Cansaço
+  resultadoHTML += criarCategoria(
+    '⚡ Sociedade do Cansaço',
+    can,
+    'Seu nível de autocobrança e capacidade de descanso',
+    [
+      'Você equilibra bem produtividade e descanso, respeitando seus limites',
+      'Sinais de autocobrança excessiva aparecem. Reserve momentos genuínos de pausa sem culpa',
+      'A lógica do desempenho constante pode estar levando ao esgotamento. O descanso é essencial'
+    ]
+  );
+  
+  // Fontes de Pressão
+  resultadoHTML += criarCategoria(
+    '🏋️ Fontes de Pressão',
+    pre,
+    'Origem e intensidade das cobranças que você sente',
+    [
+      'Você gerencia bem as pressões externas e internas, mantendo equilíbrio',
+      'Algumas fontes de pressão merecem atenção. Identifique quais são mais desgastantes',
+      'As cobranças podem estar se tornando excessivas. Compartilhe suas dificuldades'
+    ]
+  );
+  
+  // Sinais de Esgotamento
+  resultadoHTML += criarCategoria(
+    '😴 Sinais de Esgotamento',
+    esg,
+    'Indicadores de desgaste físico e emocional',
+    [
+      'Você demonstra boa resiliência e manejo do estresse no dia a dia',
+      'Alguns sinais de cansaço aparecem. É importante monitorar seu bem-estar',
+      'Sinais significativos de esgotamento merecem atenção e cuidado'
+    ]
+  );
+  
+  // Autocuidado
+  resultadoHTML += criarCategoria(
+    '💚 Práticas de Autocuidado',
+    aut,
+    'Como você cuida da sua saúde mental e emocional',
+    [
+      'Você mantém boas práticas de autocuidado e equilíbrio na rotina',
+      'Há espaço para ampliar suas estratégias de cuidado pessoal',
+      'As práticas de autocuidado podem estar insuficientes para o momento atual'
+    ]
+  );
+  
+  document.getElementById('resultContent').innerHTML = resultadoHTML;
+  document.getElementById('questionario').style.display = 'none';
+  document.getElementById('resultado').style.display = 'block';
+  window.scrollTo(0, 0);
+}
+
+function criarCategoria(titulo, percentual, descricao, mensagens) {
+  let nivel, mensagem, cor;
+  
+  if (percentual <= 40) {
+    nivel = 'Baixo';
+    mensagem = mensagens[0];
+    cor = 'low';
+  } else if (percentual <= 70) {
+    nivel = 'Médio';
+    mensagem = mensagens[1];
+    cor = 'medium';
+  } else {
+    nivel = 'Alto';
+    mensagem = mensagens[2];
+    cor = 'high';
   }
-
-  document.getElementById('resultado').innerHTML = "<h3>Seu resultado</h3>" + texto;
+  
+  return `
+    <div class="result-category ${cor}">
+      <h3>${titulo}</h3>
+      <p><strong>${nivel}</strong> - ${descricao}</p>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: ${percentual}%"></div>
+      </div>
+      <p><strong>Reflexão:</strong> ${mensagem}</p>
+    </div>
+  `;
 }
 
-function titulo(b) {
-  return {
-    b1: "Expectativa vs Realidade",
-    b2: "Sociedade do Cansaço",
-    b3: "Fontes de Pressão",
-    b4: "Sinais de Esgotamento",
-    b5: "Autocuidado"
-  }[b];
+function voltarQuestionario() {
+  document.getElementById('resultado').style.display = 'none';
+  document.getElementById('questionario').style.display = 'block';
+  
+  // Limpar seleções e respostas
+  document.querySelectorAll('.option').forEach(opt => {
+    opt.classList.remove('selected');
+  });
+  
+  respostas = {
+    expectativa: [],
+    cansaco: [],
+    pressao: [],
+    esgotamento: [],
+    autocuidado: []
+  };
+  
+  document.getElementById('calcularBtn').disabled = true;
+  document.getElementById('statusMessage').textContent = "⚠️ Responda todas as 25 questões para ver seus resultados";
+  document.getElementById('statusMessage').className = "status-message status-incomplete";
+  
+  window.scrollTo(0, 0);
 }
 
-function mensagemVerde(b) {
-  return {
-    b1: "Você mantém boa noção dos seus limites e aceita suas imperfeições.",
-    b2: "Você sabe equilibrar esforço e descanso.",
-    b3: "As cobranças estão em nível saudável.",
-    b4: "Você demonstra estabilidade emocional.",
-    b5: "Você pratica hábitos que fortalecem seu bem-estar."
-  }[b];
-}
+// Event listener para o botão calcular
+document.getElementById('calcularBtn').addEventListener('click', calcularResultados);
 
-function mensagemAmarela(b) {
-  return {
-    b1: "Às vezes, as comparações externas podem afetar sua autoestima.",
-    b2: "Há sinais de autocobrança — tente respeitar seus limites.",
-    b3: "Algumas pressões podem estar pesando. Converse com alguém de confiança.",
-    b4: "Talvez seja hora de desacelerar e cuidar mais de você.",
-    b5: "Procure manter suas práticas de autocuidado mais constantes."
-  }[b];
-}
-
-function mensagemVermelha(b) {
-  return {
-    b1: "A comparação constante pode estar desgastando você. Valorize seu próprio ritmo.",
-    b2: "Você pode estar se cobrando demais. Lembre-se: descansar também é produtivo.",
-    b3: "As cobranças externas parecem excessivas. Procure apoio de pessoas próximas.",
-    b4: "Sinais de sobrecarga emocional. Converse com alguém e priorize pausas.",
-    b5: "Você pode estar negligenciando o autocuidado. Tente incluir momentos de descanso real."
-  }[b];
-}
+// Inicializar status
+verificarCompletude();
 </script>
 
 </body>
