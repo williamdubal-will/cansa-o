@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Teste: Da Expectativa à Sociedade do Cansaço</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 20px;
+  color: #333;
+}
+h2 {
+  text-align: center;
+  color: #222;
+}
+fieldset {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 6px;
+}
+legend {
+  font-weight: bold;
+  color: #444;
+}
+label {
+  display: block;
+  margin: 8px 0;
+}
+button {
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #1b5e20;
+}
+#resultado {
+  margin-top: 25px;
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+</style>
+</head>
+<body>
+
+<h2>Teste: Da Expectativa à Sociedade do Cansaço</h2>
+<p>Responda de acordo com o quanto cada afirmação combina com sua experiência. (1 = Nunca, 5 = Sempre)</p>
+
+<form id="teste">
+
+  <fieldset>
+    <legend>1️⃣ Expectativa vs Realidade</legend>
+    <label>1. Costumo me comparar com colegas que parecem ter mais sucesso.
+      <input type="number" name="b1" min="1" max="5" required>
+    </label>
+    <label>2. Tento parecer bem nas redes sociais mesmo quando não estou.
+      <input type="number" name="b1" min="1" max="5" required>
+    </label>
+    <label>3. Tenho dificuldade de aceitar meus erros.
+      <input type="number" name="b1" min="1" max="5" required>
+    </label>
+    <label>4. Sinto que estou sempre devendo algo (tempo, resultado, desempenho).
+      <input type="number" name="b1" min="1" max="5" required>
+    </label>
+    <label>5. Tenho medo de decepcionar minha família ou professores.
+      <input type="number" name="b1" min="1" max="5" required>
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>2️⃣ Sociedade do Cansaço</legend>
+    <label>6. Mesmo ao terminar uma tarefa, penso no que ainda falta fazer.
+      <input type="number" name="b2" min="1" max="5" required>
+    </label>
+    <label>7. Tenho dificuldade de descansar ou “desligar a mente”.
+      <input type="number" name="b2" min="1" max="5" required>
+    </label>
+    <label>8. Sinto culpa quando tiro um tempo para mim.
+      <input type="number" name="b2" min="1" max="5" required>
+    </label>
+    <label>9. Acho que se não for produtivo, estou perdendo tempo.
+      <input type="number" name="b2" min="1" max="5" required>
+    </label>
+    <label>10. Tenho a sensação de estar sempre cansado.
+      <input type="number" name="b2" min="1" max="5" required>
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>3️⃣ Fontes de Pressão</legend>
+    <label>11. As cobranças que mais sinto vêm de mim mesmo.
+      <input type="number" name="b3" min="1" max="5" required>
+    </label>
+    <label>12. As cobranças familiares pesam sobre mim.
+      <input type="number" name="b3" min="1" max="5" required>
+    </label>
+    <label>13. As exigências da escola me deixam ansioso.
+      <input type="number" name="b3" min="1" max="5" required>
+    </label>
+    <label>14. Sinto-me cobrado nas redes sociais para mostrar sucesso.
+      <input type="number" name="b3" min="1" max="5" required>
+    </label>
+    <label>15. Tenho medo de ser julgado quando não atinjo metas.
+      <input type="number" name="b3" min="1" max="5" required>
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>4️⃣ Sinais de Esgotamento</legend>
+    <label>16. Tenho sentido falta de vontade nas coisas que antes gostava.
+      <input type="number" name="b4" min="1" max="5" required>
+    </label>
+    <label>17. Tenho me sentido mais irritado ou impaciente.
+      <input type="number" name="b4" min="1" max="5" required>
+    </label>
+    <label>18. Tenho dificuldade para dormir ou relaxar.
+      <input type="number" name="b4" min="1" max="5" required>
+    </label>
+    <label>19. Tenho preocupações sem motivo claro.
+      <input type="number" name="b4" min="1" max="5" required>
+    </label>
+    <label>20. Sinto-me sem energia física ou emocional.
+      <input type="number" name="b4" min="1" max="5" required>
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>5️⃣ Autocuidado</legend>
+    <label>21. Tenho alguma forma de relaxar ou aliviar o estresse.
+      <input type="number" name="b5" min="1" max="5" required>
+    </label>
+    <label>22. Tenho alguém com quem conversar quando não estou bem.
+      <input type="number" name="b5" min="1" max="5" required>
+    </label>
+    <label>23. Percebo quando preciso fazer uma pausa.
+      <input type="number" name="b5" min="1" max="5" required>
+    </label>
+    <label>24. Tento cuidar da minha mente e corpo, não só das notas.
+      <input type="number" name="b5" min="1" max="5" required>
+    </label>
+    <label>25. Consigo equilibrar estudo, descanso e lazer.
+      <input type="number" name="b5" min="1" max="5" required>
+    </label>
+  </fieldset>
+
+  <button type="button" onclick="calcular()">Ver resultado</button>
+</form>
+
+<div id="resultado"></div>
+
+<script>
+function calcular() {
+  const form = document.forms['teste'];
+  let blocos = { b1:0, b2:0, b3:0, b4:0, b5:0 };
+  let counts = { b1:0, b2:0, b3:0, b4:0, b5:0 };
+
+  for (let el of form.elements) {
+    if (el.name && el.value) {
+      blocos[el.name] += parseInt(el.value);
+      counts[el.name]++;
+    }
+  }
+
+  let texto = "";
+  for (let b in blocos) {
+    let media = blocos[b];
+    if (media <= 13) {
+      texto += `<p><b>${titulo(b)}</b>: 🟢 Equilíbrio saudável.<br>${mensagemVerde(b)}</p>`;
+    } else if (media <= 20) {
+      texto += `<p><b>${titulo(b)}</b>: 🟡 Sinais de alerta.<br>${mensagemAmarela(b)}</p>`;
+    } else {
+      texto += `<p><b>${titulo(b)}</b>: 🔴 Sinais de sobrecarga.<br>${mensagemVermelha(b)}</p>`;
+    }
+  }
+
+  document.getElementById('resultado').innerHTML = "<h3>Seu resultado</h3>" + texto;
+}
+
+function titulo(b) {
+  return {
+    b1: "Expectativa vs Realidade",
+    b2: "Sociedade do Cansaço",
+    b3: "Fontes de Pressão",
+    b4: "Sinais de Esgotamento",
+    b5: "Autocuidado"
+  }[b];
+}
+
+function mensagemVerde(b) {
+  return {
+    b1: "Você mantém boa noção dos seus limites e aceita suas imperfeições.",
+    b2: "Você sabe equilibrar esforço e descanso.",
+    b3: "As cobranças estão em nível saudável.",
+    b4: "Você demonstra estabilidade emocional.",
+    b5: "Você pratica hábitos que fortalecem seu bem-estar."
+  }[b];
+}
+
+function mensagemAmarela(b) {
+  return {
+    b1: "Às vezes, as comparações externas podem afetar sua autoestima.",
+    b2: "Há sinais de autocobrança — tente respeitar seus limites.",
+    b3: "Algumas pressões podem estar pesando. Converse com alguém de confiança.",
+    b4: "Talvez seja hora de desacelerar e cuidar mais de você.",
+    b5: "Procure manter suas práticas de autocuidado mais constantes."
+  }[b];
+}
+
+function mensagemVermelha(b) {
+  return {
+    b1: "A comparação constante pode estar desgastando você. Valorize seu próprio ritmo.",
+    b2: "Você pode estar se cobrando demais. Lembre-se: descansar também é produtivo.",
+    b3: "As cobranças externas parecem excessivas. Procure apoio de pessoas próximas.",
+    b4: "Sinais de sobrecarga emocional. Converse com alguém e priorize pausas.",
+    b5: "Você pode estar negligenciando o autocuidado. Tente incluir momentos de descanso real."
+  }[b];
+}
+</script>
+
+</body>
+</html>
