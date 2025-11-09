@@ -160,6 +160,8 @@ body {
   margin: 20px;
   display: block;
   width: calc(100% - 40px);
+  text-decoration: none;
+  text-align: center;
 }
 
 .btn:hover {
@@ -169,6 +171,22 @@ body {
 .btn:disabled {
   background: #bdc3c7;
   cursor: not-allowed;
+}
+
+.btn-success {
+  background: var(--success);
+}
+
+.btn-success:hover {
+  background: #219a52;
+}
+
+.btn-forms {
+  background: #673ab7;
+}
+
+.btn-forms:hover {
+  background: #5e35b1;
 }
 
 .result-screen {
@@ -275,6 +293,78 @@ body {
   border-left: 4px solid #27ae60;
   font-style: italic;
 }
+
+.results-summary {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+  border-left: 4px solid var(--secondary);
+}
+
+.results-summary h4 {
+  color: var(--primary);
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.result-item {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  border: 2px solid #e9ecef;
+}
+
+.result-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--primary);
+  margin-bottom: 5px;
+}
+
+.result-label {
+  font-size: 12px;
+  color: #666;
+}
+
+.forms-instruction {
+  background: #e8f5e8;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.forms-instruction h4 {
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.forms-instruction p {
+  margin-bottom: 15px;
+  color: #666;
+}
+
+.score-badge {
+  display: inline-block;
+  background: var(--secondary);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 5px 0;
+}
 </style>
 </head>
 <body>
@@ -284,7 +374,7 @@ body {
   <div id="questionario">
     <div class="header">
       <h1>🌱 Da Expectativa à Sociedade do Cansaço</h1>
-      <p>Um teste reflexivo baseado em Byung-Chul Han e no programa Conviva SP</p>
+      <p>Um teste reflexivo baseado em Byung-Chul Han</p>
     </div>
     
     <div class="warning">
@@ -293,6 +383,7 @@ body {
     </div>
 
     <form id="testeForm">
+      <!-- Todos os blocos de perguntas mantidos iguais -->
       <!-- Bloco 1: Expectativa vs Realidade -->
       <div class="section">
         <h2 class="section-title">1️⃣ Expectativa vs Realidade</h2>
@@ -303,130 +394,55 @@ body {
         <div class="question" data-category="expectativa">
           <div class="question-text">1. Costumo me comparar com colegas que parecem ter mais sucesso</div>
           <div class="options">
-            <div class="option" data-value="1">
-              <div class="option-number">1</div>
-              <div class="option-label">Nunca</div>
-            </div>
-            <div class="option" data-value="2">
-              <div class="option-number">2</div>
-              <div class="option-label">Raramente</div>
-            </div>
-            <div class="option" data-value="3">
-              <div class="option-number">3</div>
-              <div class="option-label">Às vezes</div>
-            </div>
-            <div class="option" data-value="4">
-              <div class="option-number">4</div>
-              <div class="option-label">Frequentemente</div>
-            </div>
-            <div class="option" data-value="5">
-              <div class="option-number">5</div>
-              <div class="option-label">Sempre</div>
-            </div>
+            <div class="option" data-value="1"><div class="option-number">1</div><div class="option-label">Nunca</div></div>
+            <div class="option" data-value="2"><div class="option-number">2</div><div class="option-label">Raramente</div></div>
+            <div class="option" data-value="3"><div class="option-number">3</div><div class="option-label">Às vezes</div></div>
+            <div class="option" data-value="4"><div class="option-number">4</div><div class="option-label">Frequentemente</div></div>
+            <div class="option" data-value="5"><div class="option-number">5</div><div class="option-label">Sempre</div></div>
           </div>
         </div>
 
         <div class="question" data-category="expectativa">
           <div class="question-text">2. Tento parecer bem nas redes sociais mesmo quando não estou</div>
           <div class="options">
-            <div class="option" data-value="1">
-              <div class="option-number">1</div>
-              <div class="option-label">Nunca</div>
-            </div>
-            <div class="option" data-value="2">
-              <div class="option-number">2</div>
-              <div class="option-label">Raramente</div>
-            </div>
-            <div class="option" data-value="3">
-              <div class="option-number">3</div>
-              <div class="option-label">Às vezes</div>
-            </div>
-            <div class="option" data-value="4">
-              <div class="option-number">4</div>
-              <div class="option-label">Frequentemente</div>
-            </div>
-            <div class="option" data-value="5">
-              <div class="option-number">5</div>
-              <div class="option-label">Sempre</div>
-            </div>
+            <div class="option" data-value="1"><div class="option-number">1</div><div class="option-label">Nunca</div></div>
+            <div class="option" data-value="2"><div class="option-number">2</div><div class="option-label">Raramente</div></div>
+            <div class="option" data-value="3"><div class="option-number">3</div><div class="option-label">Às vezes</div></div>
+            <div class="option" data-value="4"><div class="option-number">4</div><div class="option-label">Frequentemente</div></div>
+            <div class="option" data-value="5"><div class="option-number">5</div><div class="option-label">Sempre</div></div>
           </div>
         </div>
 
         <div class="question" data-category="expectativa">
           <div class="question-text">3. Tenho dificuldade de aceitar meus erros</div>
           <div class="options">
-            <div class="option" data-value="1">
-              <div class="option-number">1</div>
-              <div class="option-label">Nunca</div>
-            </div>
-            <div class="option" data-value="2">
-              <div class="option-number">2</div>
-              <div class="option-label">Raramente</div>
-            </div>
-            <div class="option" data-value="3">
-              <div class="option-number">3</div>
-              <div class="option-label">Às vezes</div>
-            </div>
-            <div class="option" data-value="4">
-              <div class="option-number">4</div>
-              <div class="option-label">Frequentemente</div>
-            </div>
-            <div class="option" data-value="5">
-              <div class="option-number">5</div>
-              <div class="option-label">Sempre</div>
-            </div>
+            <div class="option" data-value="1"><div class="option-number">1</div><div class="option-label">Nunca</div></div>
+            <div class="option" data-value="2"><div class="option-number">2</div><div class="option-label">Raramente</div></div>
+            <div class="option" data-value="3"><div class="option-number">3</div><div class="option-label">Às vezes</div></div>
+            <div class="option" data-value="4"><div class="option-number">4</div><div class="option-label">Frequentemente</div></div>
+            <div class="option" data-value="5"><div class="option-number">5</div><div class="option-label">Sempre</div></div>
           </div>
         </div>
 
         <div class="question" data-category="expectativa">
           <div class="question-text">4. Sinto que estou sempre devendo algo (tempo, resultado, desempenho)</div>
           <div class="options">
-            <div class="option" data-value="1">
-              <div class="option-number">1</div>
-              <div class="option-label">Nunca</div>
-            </div>
-            <div class="option" data-value="2">
-              <div class="option-number">2</div>
-              <div class="option-label">Raramente</div>
-            </div>
-            <div class="option" data-value="3">
-              <div class="option-number">3</div>
-              <div class="option-label">Às vezes</div>
-            </div>
-            <div class="option" data-value="4">
-              <div class="option-number">4</div>
-              <div class="option-label">Frequentemente</div>
-            </div>
-            <div class="option" data-value="5">
-              <div class="option-number">5</div>
-              <div class="option-label">Sempre</div>
-            </div>
+            <div class="option" data-value="1"><div class="option-number">1</div><div class="option-label">Nunca</div></div>
+            <div class="option" data-value="2"><div class="option-number">2</div><div class="option-label">Raramente</div></div>
+            <div class="option" data-value="3"><div class="option-number">3</div><div class="option-label">Às vezes</div></div>
+            <div class="option" data-value="4"><div class="option-number">4</div><div class="option-label">Frequentemente</div></div>
+            <div class="option" data-value="5"><div class="option-number">5</div><div class="option-label">Sempre</div></div>
           </div>
         </div>
 
         <div class="question" data-category="expectativa">
           <div class="question-text">5. Tenho medo de decepcionar minha família ou professores</div>
           <div class="options">
-            <div class="option" data-value="1">
-              <div class="option-number">1</div>
-              <div class="option-label">Nunca</div>
-            </div>
-            <div class="option" data-value="2">
-              <div class="option-number">2</div>
-              <div class="option-label">Raramente</div>
-            </div>
-            <div class="option" data-value="3">
-              <div class="option-number">3</div>
-              <div class="option-label">Às vezes</div>
-            </div>
-            <div class="option" data-value="4">
-              <div class="option-number">4</div>
-              <div class="option-label">Frequentemente</div>
-            </div>
-            <div class="option" data-value="5">
-              <div class="option-number">5</div>
-              <div class="option-label">Sempre</div>
-            </div>
+            <div class="option" data-value="1"><div class="option-number">1</div><div class="option-label">Nunca</div></div>
+            <div class="option" data-value="2"><div class="option-number">2</div><div class="option-label">Raramente</div></div>
+            <div class="option" data-value="3"><div class="option-number">3</div><div class="option-label">Às vezes</div></div>
+            <div class="option" data-value="4"><div class="option-number">4</div><div class="option-label">Frequentemente</div></div>
+            <div class="option" data-value="5"><div class="option-number">5</div><div class="option-label">Sempre</div></div>
           </div>
         </div>
       </div>
@@ -438,130 +454,55 @@ body {
         <div class="question" data-category="cansaco">
           <div class="question-text">6. Mesmo ao terminar uma tarefa, penso no que ainda falta fazer</div>
           <div class="options">
-            <div class="option" data-value="1">
-              <div class="option-number">1</div>
-              <div class="option-label">Nunca</div>
-            </div>
-            <div class="option" data-value="2">
-              <div class="option-number">2</div>
-              <div class="option-label">Raramente</div>
-            </div>
-            <div class="option" data-value="3">
-              <div class="option-number">3</div>
-              <div class="option-label">Às vezes</div>
-            </div>
-            <div class="option" data-value="4">
-              <div class="option-number">4</div>
-              <div class="option-label">Frequentemente</div>
-            </div>
-            <div class="option" data-value="5">
-              <div class="option-number">5</div>
-              <div class="option-label">Sempre</div>
-            </div>
+            <div class="option" data-value="1"><div class="option-number">1</div><div class="option-label">Nunca</div></div>
+            <div class="option" data-value="2"><div class="option-number">2</div><div class="option-label">Raramente</div></div>
+            <div class="option" data-value="3"><div class="option-number">3</div><div class="option-label">Às vezes</div></div>
+            <div class="option" data-value="4"><div class="option-number">4</div><div class="option-label">Frequentemente</div></div>
+            <div class="option" data-value="5"><div class="option-number">5</div><div class="option-label">Sempre</div></div>
           </div>
         </div>
 
         <div class="question" data-category="cansaco">
           <div class="question-text">7. Tenho dificuldade de descansar ou "desligar a mente"</div>
           <div class="options">
-            <div class="option" data-value="1">
-              <div class="option-number">1</div>
-              <div class="option-label">Nunca</div>
-            </div>
-            <div class="option" data-value="2">
-              <div class="option-number">2</div>
-              <div class="option-label">Raramente</div>
-            </div>
-            <div class="option" data-value="3">
-              <div class="option-number">3</div>
-              <div class="option-label">Às vezes</div>
-            </div>
-            <div class="option" data-value="4">
-              <div class="option-number">4</div>
-              <div class="option-label">Frequentemente</div>
-            </div>
-            <div class="option" data-value="5">
-              <div class="option-number">5</div>
-              <div class="option-label">Sempre</div>
-            </div>
+            <div class="option" data-value="1"><div class="option-number">1</div><div class="option-label">Nunca</div></div>
+            <div class="option" data-value="2"><div class="option-number">2</div><div class="option-label">Raramente</div></div>
+            <div class="option" data-value="3"><div class="option-number">3</div><div class="option-label">Às vezes</div></div>
+            <div class="option" data-value="4"><div class="option-number">4</div><div class="option-label">Frequentemente</div></div>
+            <div class="option" data-value="5"><div class="option-number">5</div><div class="option-label">Sempre</div></div>
           </div>
         </div>
 
         <div class="question" data-category="cansaco">
           <div class="question-text">8. Sinto culpa quando tiro um tempo para mim</div>
           <div class="options">
-            <div class="option" data-value="1">
-              <div class="option-number">1</div>
-              <div class="option-label">Nunca</div>
-            </div>
-            <div class="option" data-value="2">
-              <div class="option-number">2</div>
-              <div class="option-label">Raramente</div>
-            </div>
-            <div class="option" data-value="3">
-              <div class="option-number">3</div>
-              <div class="option-label">Às vezes</div>
-            </div>
-            <div class="option" data-value="4">
-              <div class="option-number">4</div>
-              <div class="option-label">Frequentemente</div>
-            </div>
-            <div class="option" data-value="5">
-              <div class="option-number">5</div>
-              <div class="option-label">Sempre</div>
-            </div>
+            <div class="option" data-value="1"><div class="option-number">1</div><div class="option-label">Nunca</div></div>
+            <div class="option" data-value="2"><div class="option-number">2</div><div class="option-label">Raramente</div></div>
+            <div class="option" data-value="3"><div class="option-number">3</div><div class="option-label">Às vezes</div></div>
+            <div class="option" data-value="4"><div class="option-number">4</div><div class="option-label">Frequentemente</div></div>
+            <div class="option" data-value="5"><div class="option-number">5</div><div class="option-label">Sempre</div></div>
           </div>
         </div>
 
         <div class="question" data-category="cansaco">
           <div class="question-text">9. Acho que se não for produtivo, estou perdendo tempo</div>
           <div class="options">
-            <div class="option" data-value="1">
-              <div class="option-number">1</div>
-              <div class="option-label">Nunca</div>
-            </div>
-            <div class="option" data-value="2">
-              <div class="option-number">2</div>
-              <div class="option-label">Raramente</div>
-            </div>
-            <div class="option" data-value="3">
-              <div class="option-number">3</div>
-              <div class="option-label">Às vezes</div>
-            </div>
-            <div class="option" data-value="4">
-              <div class="option-number">4</div>
-              <div class="option-label">Frequentemente</div>
-            </div>
-            <div class="option" data-value="5">
-              <div class="option-number">5</div>
-              <div class="option-label">Sempre</div>
-            </div>
+            <div class="option" data-value="1"><div class="option-number">1</div><div class="option-label">Nunca</div></div>
+            <div class="option" data-value="2"><div class="option-number">2</div><div class="option-label">Raramente</div></div>
+            <div class="option" data-value="3"><div class="option-number">3</div><div class="option-label">Às vezes</div></div>
+            <div class="option" data-value="4"><div class="option-number">4</div><div class="option-label">Frequentemente</div></div>
+            <div class="option" data-value="5"><div class="option-number">5</div><div class="option-label">Sempre</div></div>
           </div>
         </div>
 
         <div class="question" data-category="cansaco">
           <div class="question-text">10. Tenho a sensação de estar sempre cansado</div>
           <div class="options">
-            <div class="option" data-value="1">
-              <div class="option-number">1</div>
-              <div class="option-label">Nunca</div>
-            </div>
-            <div class="option" data-value="2">
-              <div class="option-number">2</div>
-              <div class="option-label">Raramente</div>
-            </div>
-            <div class="option" data-value="3">
-              <div class="option-number">3</div>
-              <div class="option-label">Às vezes</div>
-            </div>
-            <div class="option" data-value="4">
-              <div class="option-number">4</div>
-              <div class="option-label">Frequentemente</div>
-            </div>
-            <div class="option" data-value="5">
-              <div class="option-number">5</div>
-              <div class="option-label">Sempre</div>
-            </div>
+            <div class="option" data-value="1"><div class="option-number">1</div><div class="option-label">Nunca</div></div>
+            <div class="option" data-value="2"><div class="option-number">2</div><div class="option-label">Raramente</div></div>
+            <div class="option" data-value="3"><div class="option-number">3</div><div class="option-label">Às vezes</div></div>
+            <div class="option" data-value="4"><div class="option-number">4</div><div class="option-label">Frequentemente</div></div>
+            <div class="option" data-value="5"><div class="option-number">5</div><div class="option-label">Sempre</div></div>
           </div>
         </div>
       </div>
@@ -573,130 +514,55 @@ body {
         <div class="question" data-category="pressao">
           <div class="question-text">11. As cobranças que mais sinto vêm de mim mesmo</div>
           <div class="options">
-            <div class="option" data-value="1">
-              <div class="option-number">1</div>
-              <div class="option-label">Nunca</div>
-            </div>
-            <div class="option" data-value="2">
-              <div class="option-number">2</div>
-              <div class="option-label">Raramente</div>
-            </div>
-            <div class="option" data-value="3">
-              <div class="option-number">3</div>
-              <div class="option-label">Às vezes</div>
-            </div>
-            <div class="option" data-value="4">
-              <div class="option-number">4</div>
-              <div class="option-label">Frequentemente</div>
-            </div>
-            <div class="option" data-value="5">
-              <div class="option-number">5</div>
-              <div class="option-label">Sempre</div>
-            </div>
+            <div class="option" data-value="1"><div class="option-number">1</div><div class="option-label">Nunca</div></div>
+            <div class="option" data-value="2"><div class="option-number">2</div><div class="option-label">Raramente</div></div>
+            <div class="option" data-value="3"><div class="option-number">3</div><div class="option-label">Às vezes</div></div>
+            <div class="option" data-value="4"><div class="option-number">4</div><div class="option-label">Frequentemente</div></div>
+            <div class="option" data-value="5"><div class="option-number">5</div><div class="option-label">Sempre</div></div>
           </div>
         </div>
 
         <div class="question" data-category="pressao">
           <div class="question-text">12. As cobranças familiares pesam sobre mim</div>
           <div class="options">
-            <div class="option" data-value="1">
-              <div class="option-number">1</div>
-              <div class="option-label">Nunca</div>
-            </div>
-            <div class="option" data-value="2">
-              <div class="option-number">2</div>
-              <div class="option-label">Raramente</div>
-            </div>
-            <div class="option" data-value="3">
-              <div class="option-number">3</div>
-              <div class="option-label">Às vezes</div>
-            </div>
-            <div class="option" data-value="4">
-              <div class="option-number">4</div>
-              <div class="option-label">Frequentemente</div>
-            </div>
-            <div class="option" data-value="5">
-              <div class="option-number">5</div>
-              <div class="option-label">Sempre</div>
-            </div>
+            <div class="option" data-value="1"><div class="option-number">1</div><div class="option-label">Nunca</div></div>
+            <div class="option" data-value="2"><div class="option-number">2</div><div class="option-label">Raramente</div></div>
+            <div class="option" data-value="3"><div class="option-number">3</div><div class="option-label">Às vezes</div></div>
+            <div class="option" data-value="4"><div class="option-number">4</div><div class="option-label">Frequentemente</div></div>
+            <div class="option" data-value="5"><div class="option-number">5</div><div class="option-label">Sempre</div></div>
           </div>
         </div>
 
         <div class="question" data-category="pressao">
           <div class="question-text">13. As exigências da escola me deixam ansioso</div>
           <div class="options">
-            <div class="option" data-value="1">
-              <div class="option-number">1</div>
-              <div class="option-label">Nunca</div>
-            </div>
-            <div class="option" data-value="2">
-              <div class="option-number">2</div>
-              <div class="option-label">Raramente</div>
-            </div>
-            <div class="option" data-value="3">
-              <div class="option-number">3</div>
-              <div class="option-label">Às vezes</div>
-            </div>
-            <div class="option" data-value="4">
-              <div class="option-number">4</div>
-              <div class="option-label">Frequentemente</div>
-            </div>
-            <div class="option" data-value="5">
-              <div class="option-number">5</div>
-              <div class="option-label">Sempre</div>
-            </div>
+            <div class="option" data-value="1"><div class="option-number">1</div><div class="option-label">Nunca</div></div>
+            <div class="option" data-value="2"><div class="option-number">2</div><div class="option-label">Raramente</div></div>
+            <div class="option" data-value="3"><div class="option-number">3</div><div class="option-label">Às vezes</div></div>
+            <div class="option" data-value="4"><div class="option-number">4</div><div class="option-label">Frequentemente</div></div>
+            <div class="option" data-value="5"><div class="option-number">5</div><div class="option-label">Sempre</div></div>
           </div>
         </div>
 
         <div class="question" data-category="pressao">
           <div class="question-text">14. Sinto-me cobrado nas redes sociais para mostrar sucesso</div>
           <div class="options">
-            <div class="option" data-value="1">
-              <div class="option-number">1</div>
-              <div class="option-label">Nunca</div>
-            </div>
-            <div class="option" data-value="2">
-              <div class="option-number">2</div>
-              <div class="option-label">Raramente</div>
-            </div>
-            <div class="option" data-value="3">
-              <div class="option-number">3</div>
-              <div class="option-label">Às vezes</div>
-            </div>
-            <div class="option" data-value="4">
-              <div class="option-number">4</div>
-              <div class="option-label">Frequentemente</div>
-            </div>
-            <div class="option" data-value="5">
-              <div class="option-number">5</div>
-              <div class="option-label">Sempre</div>
-            </div>
+            <div class="option" data-value="1"><div class="option-number">1</div><div class="option-label">Nunca</div></div>
+            <div class="option" data-value="2"><div class="option-number">2</div><div class="option-label">Raramente</div></div>
+            <div class="option" data-value="3"><div class="option-number">3</div><div class="option-label">Às vezes</div></div>
+            <div class="option" data-value="4"><div class="option-number">4</div><div class="option-label">Frequentemente</div></div>
+            <div class="option" data-value="5"><div class="option-number">5</div><div class="option-label">Sempre</div></div>
           </div>
         </div>
 
         <div class="question" data-category="pressao">
           <div class="question-text">15. Tenho medo de ser julgado quando não atinjo metas</div>
           <div class="options">
-            <div class="option" data-value="1">
-              <div class="option-number">1</div>
-              <div class="option-label">Nunca</div>
-            </div>
-            <div class="option" data-value="2">
-              <div class="option-number">2</div>
-              <div class="option-label">Raramente</div>
-            </div>
-            <div class="option" data-value="3">
-              <div class="option-number">3</div>
-              <div class="option-label">Às vezes</div>
-            </div>
-            <div class="option" data-value="4">
-              <div class="option-number">4</div>
-              <div class="option-label">Frequentemente</div>
-            </div>
-            <div class="option" data-value="5">
-              <div class="option-number">5</div>
-              <div class="option-label">Sempre</div>
-            </div>
+            <div class="option" data-value="1"><div class="option-number">1</div><div class="option-label">Nunca</div></div>
+            <div class="option" data-value="2"><div class="option-number">2</div><div class="option-label">Raramente</div></div>
+            <div class="option" data-value="3"><div class="option-number">3</div><div class="option-label">Às vezes</div></div>
+            <div class="option" data-value="4"><div class="option-number">4</div><div class="option-label">Frequentemente</div></div>
+            <div class="option" data-value="5"><div class="option-number">5</div><div class="option-label">Sempre</div></div>
           </div>
         </div>
       </div>
@@ -708,130 +574,55 @@ body {
         <div class="question" data-category="esgotamento">
           <div class="question-text">16. Tenho sentido falta de vontade nas coisas que antes gostava</div>
           <div class="options">
-            <div class="option" data-value="1">
-              <div class="option-number">1</div>
-              <div class="option-label">Nunca</div>
-            </div>
-            <div class="option" data-value="2">
-              <div class="option-number">2</div>
-              <div class="option-label">Raramente</div>
-            </div>
-            <div class="option" data-value="3">
-              <div class="option-number">3</div>
-              <div class="option-label">Às vezes</div>
-            </div>
-            <div class="option" data-value="4">
-              <div class="option-number">4</div>
-              <div class="option-label">Frequentemente</div>
-            </div>
-            <div class="option" data-value="5">
-              <div class="option-number">5</div>
-              <div class="option-label">Sempre</div>
-            </div>
+            <div class="option" data-value="1"><div class="option-number">1</div><div class="option-label">Nunca</div></div>
+            <div class="option" data-value="2"><div class="option-number">2</div><div class="option-label">Raramente</div></div>
+            <div class="option" data-value="3"><div class="option-number">3</div><div class="option-label">Às vezes</div></div>
+            <div class="option" data-value="4"><div class="option-number">4</div><div class="option-label">Frequentemente</div></div>
+            <div class="option" data-value="5"><div class="option-number">5</div><div class="option-label">Sempre</div></div>
           </div>
         </div>
 
         <div class="question" data-category="esgotamento">
           <div class="question-text">17. Tenho me sentido mais irritado ou impaciente</div>
           <div class="options">
-            <div class="option" data-value="1">
-              <div class="option-number">1</div>
-              <div class="option-label">Nunca</div>
-            </div>
-            <div class="option" data-value="2">
-              <div class="option-number">2</div>
-              <div class="option-label">Raramente</div>
-            </div>
-            <div class="option" data-value="3">
-              <div class="option-number">3</div>
-              <div class="option-label">Às vezes</div>
-            </div>
-            <div class="option" data-value="4">
-              <div class="option-number">4</div>
-              <div class="option-label">Frequentemente</div>
-            </div>
-            <div class="option" data-value="5">
-              <div class="option-number">5</div>
-              <div class="option-label">Sempre</div>
-            </div>
+            <div class="option" data-value="1"><div class="option-number">1</div><div class="option-label">Nunca</div></div>
+            <div class="option" data-value="2"><div class="option-number">2</div><div class="option-label">Raramente</div></div>
+            <div class="option" data-value="3"><div class="option-number">3</div><div class="option-label">Às vezes</div></div>
+            <div class="option" data-value="4"><div class="option-number">4</div><div class="option-label">Frequentemente</div></div>
+            <div class="option" data-value="5"><div class="option-number">5</div><div class="option-label">Sempre</div></div>
           </div>
         </div>
 
         <div class="question" data-category="esgotamento">
           <div class="question-text">18. Tenho dificuldade para dormir ou relaxar</div>
           <div class="options">
-            <div class="option" data-value="1">
-              <div class="option-number">1</div>
-              <div class="option-label">Nunca</div>
-            </div>
-            <div class="option" data-value="2">
-              <div class="option-number">2</div>
-              <div class="option-label">Raramente</div>
-            </div>
-            <div class="option" data-value="3">
-              <div class="option-number">3</div>
-              <div class="option-label">Às vezes</div>
-            </div>
-            <div class="option" data-value="4">
-              <div class="option-number">4</div>
-              <div class="option-label">Frequentemente</div>
-            </div>
-            <div class="option" data-value="5">
-              <div class="option-number">5</div>
-              <div class="option-label">Sempre</div>
-            </div>
+            <div class="option" data-value="1"><div class="option-number">1</div><div class="option-label">Nunca</div></div>
+            <div class="option" data-value="2"><div class="option-number">2</div><div class="option-label">Raramente</div></div>
+            <div class="option" data-value="3"><div class="option-number">3</div><div class="option-label">Às vezes</div></div>
+            <div class="option" data-value="4"><div class="option-number">4</div><div class="option-label">Frequentemente</div></div>
+            <div class="option" data-value="5"><div class="option-number">5</div><div class="option-label">Sempre</div></div>
           </div>
         </div>
 
         <div class="question" data-category="esgotamento">
           <div class="question-text">19. Tenho preocupações sem motivo claro</div>
           <div class="options">
-            <div class="option" data-value="1">
-              <div class="option-number">1</div>
-              <div class="option-label">Nunca</div>
-            </div>
-            <div class="option" data-value="2">
-              <div class="option-number">2</div>
-              <div class="option-label">Raramente</div>
-            </div>
-            <div class="option" data-value="3">
-              <div class="option-number">3</div>
-              <div class="option-label">Às vezes</div>
-            </div>
-            <div class="option" data-value="4">
-              <div class="option-number">4</div>
-              <div class="option-label">Frequentemente</div>
-            </div>
-            <div class="option" data-value="5">
-              <div class="option-number">5</div>
-              <div class="option-label">Sempre</div>
-            </div>
+            <div class="option" data-value="1"><div class="option-number">1</div><div class="option-label">Nunca</div></div>
+            <div class="option" data-value="2"><div class="option-number">2</div><div class="option-label">Raramente</div></div>
+            <div class="option" data-value="3"><div class="option-number">3</div><div class="option-label">Às vezes</div></div>
+            <div class="option" data-value="4"><div class="option-number">4</div><div class="option-label">Frequentemente</div></div>
+            <div class="option" data-value="5"><div class="option-number">5</div><div class="option-label">Sempre</div></div>
           </div>
         </div>
 
         <div class="question" data-category="esgotamento">
           <div class="question-text">20. Sinto-me sem energia física ou emocional</div>
           <div class="options">
-            <div class="option" data-value="1">
-              <div class="option-number">1</div>
-              <div class="option-label">Nunca</div>
-            </div>
-            <div class="option" data-value="2">
-              <div class="option-number">2</div>
-              <div class="option-label">Raramente</div>
-            </div>
-            <div class="option" data-value="3">
-              <div class="option-number">3</div>
-              <div class="option-label">Às vezes</div>
-            </div>
-            <div class="option" data-value="4">
-              <div class="option-number">4</div>
-              <div class="option-label">Frequentemente</div>
-            </div>
-            <div class="option" data-value="5">
-              <div class="option-number">5</div>
-              <div class="option-label">Sempre</div>
-            </div>
+            <div class="option" data-value="1"><div class="option-number">1</div><div class="option-label">Nunca</div></div>
+            <div class="option" data-value="2"><div class="option-number">2</div><div class="option-label">Raramente</div></div>
+            <div class="option" data-value="3"><div class="option-number">3</div><div class="option-label">Às vezes</div></div>
+            <div class="option" data-value="4"><div class="option-number">4</div><div class="option-label">Frequentemente</div></div>
+            <div class="option" data-value="5"><div class="option-number">5</div><div class="option-label">Sempre</div></div>
           </div>
         </div>
       </div>
@@ -843,130 +634,55 @@ body {
         <div class="question" data-category="autocuidado">
           <div class="question-text">21. Tenho alguma forma de relaxar ou aliviar o estresse</div>
           <div class="options">
-            <div class="option" data-value="1">
-              <div class="option-number">1</div>
-              <div class="option-label">Nunca</div>
-            </div>
-            <div class="option" data-value="2">
-              <div class="option-number">2</div>
-              <div class="option-label">Raramente</div>
-            </div>
-            <div class="option" data-value="3">
-              <div class="option-number">3</div>
-              <div class="option-label">Às vezes</div>
-            </div>
-            <div class="option" data-value="4">
-              <div class="option-number">4</div>
-              <div class="option-label">Frequentemente</div>
-            </div>
-            <div class="option" data-value="5">
-              <div class="option-number">5</div>
-              <div class="option-label">Sempre</div>
-            </div>
+            <div class="option" data-value="1"><div class="option-number">1</div><div class="option-label">Nunca</div></div>
+            <div class="option" data-value="2"><div class="option-number">2</div><div class="option-label">Raramente</div></div>
+            <div class="option" data-value="3"><div class="option-number">3</div><div class="option-label">Às vezes</div></div>
+            <div class="option" data-value="4"><div class="option-number">4</div><div class="option-label">Frequentemente</div></div>
+            <div class="option" data-value="5"><div class="option-number">5</div><div class="option-label">Sempre</div></div>
           </div>
         </div>
 
         <div class="question" data-category="autocuidado">
           <div class="question-text">22. Tenho alguém com quem conversar quando não estou bem</div>
           <div class="options">
-            <div class="option" data-value="1">
-              <div class="option-number">1</div>
-              <div class="option-label">Nunca</div>
-            </div>
-            <div class="option" data-value="2">
-              <div class="option-number">2</div>
-              <div class="option-label">Raramente</div>
-            </div>
-            <div class="option" data-value="3">
-              <div class="option-number">3</div>
-              <div class="option-label">Às vezes</div>
-            </div>
-            <div class="option" data-value="4">
-              <div class="option-number">4</div>
-              <div class="option-label">Frequentemente</div>
-            </div>
-            <div class="option" data-value="5">
-              <div class="option-number">5</div>
-              <div class="option-label">Sempre</div>
-            </div>
+            <div class="option" data-value="1"><div class="option-number">1</div><div class="option-label">Nunca</div></div>
+            <div class="option" data-value="2"><div class="option-number">2</div><div class="option-label">Raramente</div></div>
+            <div class="option" data-value="3"><div class="option-number">3</div><div class="option-label">Às vezes</div></div>
+            <div class="option" data-value="4"><div class="option-number">4</div><div class="option-label">Frequentemente</div></div>
+            <div class="option" data-value="5"><div class="option-number">5</div><div class="option-label">Sempre</div></div>
           </div>
         </div>
 
         <div class="question" data-category="autocuidado">
           <div class="question-text">23. Percebo quando preciso fazer uma pausa</div>
           <div class="options">
-            <div class="option" data-value="1">
-              <div class="option-number">1</div>
-              <div class="option-label">Nunca</div>
-            </div>
-            <div class="option" data-value="2">
-              <div class="option-number">2</div>
-              <div class="option-label">Raramente</div>
-            </div>
-            <div class="option" data-value="3">
-              <div class="option-number">3</div>
-              <div class="option-label">Às vezes</div>
-            </div>
-            <div class="option" data-value="4">
-              <div class="option-number">4</div>
-              <div class="option-label">Frequentemente</div>
-            </div>
-            <div class="option" data-value="5">
-              <div class="option-number">5</div>
-              <div class="option-label">Sempre</div>
-            </div>
+            <div class="option" data-value="1"><div class="option-number">1</div><div class="option-label">Nunca</div></div>
+            <div class="option" data-value="2"><div class="option-number">2</div><div class="option-label">Raramente</div></div>
+            <div class="option" data-value="3"><div class="option-number">3</div><div class="option-label">Às vezes</div></div>
+            <div class="option" data-value="4"><div class="option-number">4</div><div class="option-label">Frequentemente</div></div>
+            <div class="option" data-value="5"><div class="option-number">5</div><div class="option-label">Sempre</div></div>
           </div>
         </div>
 
         <div class="question" data-category="autocuidado">
           <div class="question-text">24. Tento cuidar da minha mente e corpo, não só das notas</div>
           <div class="options">
-            <div class="option" data-value="1">
-              <div class="option-number">1</div>
-              <div class="option-label">Nunca</div>
-            </div>
-            <div class="option" data-value="2">
-              <div class="option-number">2</div>
-              <div class="option-label">Raramente</div>
-            </div>
-            <div class="option" data-value="3">
-              <div class="option-number">3</div>
-              <div class="option-label">Às vezes</div>
-            </div>
-            <div class="option" data-value="4">
-              <div class="option-number">4</div>
-              <div class="option-label">Frequentemente</div>
-            </div>
-            <div class="option" data-value="5">
-              <div class="option-number">5</div>
-              <div class="option-label">Sempre</div>
-            </div>
+            <div class="option" data-value="1"><div class="option-number">1</div><div class="option-label">Nunca</div></div>
+            <div class="option" data-value="2"><div class="option-number">2</div><div class="option-label">Raramente</div></div>
+            <div class="option" data-value="3"><div class="option-number">3</div><div class="option-label">Às vezes</div></div>
+            <div class="option" data-value="4"><div class="option-number">4</div><div class="option-label">Frequentemente</div></div>
+            <div class="option" data-value="5"><div class="option-number">5</div><div class="option-label">Sempre</div></div>
           </div>
         </div>
 
         <div class="question" data-category="autocuidado">
           <div class="question-text">25. Consigo equilibrar estudo, descanso e lazer</div>
           <div class="options">
-            <div class="option" data-value="1">
-              <div class="option-number">1</div>
-              <div class="option-label">Nunca</div>
-            </div>
-            <div class="option" data-value="2">
-              <div class="option-number">2</div>
-              <div class="option-label">Raramente</div>
-            </div>
-            <div class="option" data-value="3">
-              <div class="option-number">3</div>
-              <div class="option-label">Às vezes</div>
-            </div>
-            <div class="option" data-value="4">
-              <div class="option-number">4</div>
-              <div class="option-label">Frequentemente</div>
-            </div>
-            <div class="option" data-value="5">
-              <div class="option-number">5</div>
-              <div class="option-label">Sempre</div>
-            </div>
+            <div class="option" data-value="1"><div class="option-number">1</div><div class="option-label">Nunca</div></div>
+            <div class="option" data-value="2"><div class="option-number">2</div><div class="option-label">Raramente</div></div>
+            <div class="option" data-value="3"><div class="option-number">3</div><div class="option-label">Às vezes</div></div>
+            <div class="option" data-value="4"><div class="option-number">4</div><div class="option-label">Frequentemente</div></div>
+            <div class="option" data-value="5"><div class="option-number">5</div><div class="option-label">Sempre</div></div>
           </div>
         </div>
       </div>
@@ -990,6 +706,15 @@ body {
       <h2 class="section-title">🎯 Análise do Seu Perfil</h2>
       <div id="resultContent"></div>
       
+      <!-- Resumo dos Resultados -->
+      <div class="results-summary">
+        <h4>📈 Resumo dos Seus Resultados</h4>
+        <div class="results-grid" id="resultsGrid"></div>
+        <p style="margin-top: 15px; font-size: 14px; color: #666;">
+          <strong>Anote estas notas de 1 a 10:</strong> Você precisará delas para preencher o formulário final.
+        </p>
+      </div>
+      
       <div class="conviva-quote">
         "Acolher significa apoiar, amparar. O acolhimento aproxima as pessoas, estabelece conexões e vínculos, baseados na confiança. Acolher é mostrar-se aberto ao outro e permitir que ele também se abra." 
         <br><strong>- Programa Conviva SP</strong>
@@ -1008,17 +733,22 @@ body {
         </ul>
       </div>
 
-      <div style="margin-top: 20px; padding: 15px; background: #e8f5e8; border-radius: 8px;">
-        <h4>🌱 Reflexão Final</h4>
-        <p>Na sociedade do cansaço descrita por Byung-Chul Han, <strong>o explorador é ao mesmo tempo explorado</strong>. 
-        Reconhecer essa dinâmica é o primeiro passo para construir uma relação mais saudável com suas cobranças.</p>
-        <p style="margin-top: 10px; font-size: 14px; color: #666;">
-          <strong>Procure ajuda quando necessário:</strong> Converse com seus professores, coordenadores ou 
-          profissionais de saúde se sentir que precisa de mais suporte.
-        </p>
+      <!-- Instruções para o Google Forms -->
+      <div class="forms-instruction">
+        <h4>📝 Próximo Passo: Registrar seus Resultados</h4>
+        <p>Clique no botão abaixo para abrir o formulário onde você irá:</p>
+        <ul style="text-align: left; display: inline-block; margin: 15px 0;">
+          <li>Informar seu nome, série e turma</li>
+          <li>Registrar suas notas de 1 a 10 de cada categoria</li>
+        </ul>
+        <p><strong>⚠️ Não feche esta página até anotar suas notas!</strong></p>
+        
+        <a href="https://forms.gle/3Pk1wRqjTFLRyVGZ9" target="_blank" class="btn btn-forms">
+          📋 Abrir Formulário para Registrar Resultados
+        </a>
       </div>
 
-      <button type="button" class="btn" onclick="voltarQuestionario()" style="margin-top: 20px;">
+      <button type="button" class="btn" onclick="voltarQuestionario()" style="margin-top: 10px; background: #95a5a6;">
         Refazer Teste
       </button>
     </div>
@@ -1035,36 +765,37 @@ let respostas = {
   autocuidado: []
 };
 
-// Controle de seleção das opções
-document.querySelectorAll('.option').forEach(option => {
-  option.addEventListener('click', function() {
-    const question = this.closest('.question');
-    const category = question.getAttribute('data-category');
-    const questionsInCategory = Array.from(question.parentNode.querySelectorAll('.question[data-category="' + category + '"]'));
-    const questionIndex = questionsInCategory.indexOf(question);
-    
-    // Remove seleção anterior na mesma pergunta
-    question.querySelectorAll('.option').forEach(opt => {
-      opt.classList.remove('selected');
+// Inicialização
+document.addEventListener('DOMContentLoaded', function() {
+  // Sistema de seleção de opções
+  document.querySelectorAll('.option').forEach(option => {
+    option.addEventListener('click', function() {
+      const question = this.closest('.question');
+      const category = question.getAttribute('data-category');
+      const questionsInCategory = Array.from(question.parentNode.querySelectorAll('.question[data-category="' + category + '"]'));
+      const questionIndex = questionsInCategory.indexOf(question);
+      
+      question.querySelectorAll('.option').forEach(opt => {
+        opt.classList.remove('selected');
+      });
+      
+      this.classList.add('selected');
+      
+      const value = parseInt(this.getAttribute('data-value'));
+      respostas[category][questionIndex] = value;
+      
+      verificarCompletude();
     });
-    
-    // Adiciona seleção atual
-    this.classList.add('selected');
-    
-    // Armazena a resposta
-    const value = parseInt(this.getAttribute('data-value'));
-    respostas[category][questionIndex] = value;
-    
-    // Verifica se todas as questões foram respondidas
-    verificarCompletude();
   });
+
+  // Botão calcular resultados
+  document.getElementById('calcularBtn').addEventListener('click', calcularResultados);
 });
 
 function verificarCompletude() {
   const totalQuestions = document.querySelectorAll('.question').length;
   let answeredCount = 0;
   
-  // Conta questões respondidas
   document.querySelectorAll('.question').forEach(question => {
     if (question.querySelector('.option.selected')) {
       answeredCount++;
@@ -1086,27 +817,26 @@ function verificarCompletude() {
 }
 
 function calcularResultados() {
-  // Calcula médias para cada categoria
   const mediaExpectativa = calcularMedia(respostas.expectativa);
   const mediaCansaco = calcularMedia(respostas.cansaco);
   const mediaPressao = calcularMedia(respostas.pressao);
   const mediaEsgotamento = calcularMedia(respostas.esgotamento);
   const mediaAutocuidado = calcularMedia(respostas.autocuidado);
   
-  // Gera resultado
   exibirResultados(mediaExpectativa, mediaCansaco, mediaPressao, mediaEsgotamento, mediaAutocuidado);
 }
 
 function calcularMedia(arr) {
   if (arr.length === 0) return 0;
   const sum = arr.reduce((a, b) => a + b, 0);
-  return (sum / (arr.length * 5)) * 100; // Converte para porcentagem
+  // Converter para escala de 1-10 (cada questão vai de 1-5, então 5 questões = max 25 pontos)
+  // (soma / 25) * 10 = nota de 1-10, arredondada para número inteiro
+  return Math.round((sum / 25) * 10);
 }
 
 function exibirResultados(exp, can, pre, esg, aut) {
   let resultadoHTML = '';
   
-  // Expectativa vs Realidade
   resultadoHTML += criarCategoria(
     '🎯 Expectativa vs Realidade',
     exp,
@@ -1118,7 +848,6 @@ function exibirResultados(exp, can, pre, esg, aut) {
     ]
   );
   
-  // Sociedade do Cansaço
   resultadoHTML += criarCategoria(
     '⚡ Sociedade do Cansaço',
     can,
@@ -1130,7 +859,6 @@ function exibirResultados(exp, can, pre, esg, aut) {
     ]
   );
   
-  // Fontes de Pressão
   resultadoHTML += criarCategoria(
     '🏋️ Fontes de Pressão',
     pre,
@@ -1142,7 +870,6 @@ function exibirResultados(exp, can, pre, esg, aut) {
     ]
   );
   
-  // Sinais de Esgotamento
   resultadoHTML += criarCategoria(
     '😴 Sinais de Esgotamento',
     esg,
@@ -1154,7 +881,6 @@ function exibirResultados(exp, can, pre, esg, aut) {
     ]
   );
   
-  // Autocuidado
   resultadoHTML += criarCategoria(
     '💚 Práticas de Autocuidado',
     aut,
@@ -1167,19 +893,51 @@ function exibirResultados(exp, can, pre, esg, aut) {
   );
   
   document.getElementById('resultContent').innerHTML = resultadoHTML;
+  
+  // Adicionar resumo das notas (1-10) - números inteiros
+  const resultsGrid = `
+    <div class="result-item">
+      <div class="result-value">${exp}</div>
+      <div class="result-label">Expectativa vs Realidade</div>
+      <div class="score-badge">Nota: ${exp}</div>
+    </div>
+    <div class="result-item">
+      <div class="result-value">${can}</div>
+      <div class="result-label">Sociedade do Cansaço</div>
+      <div class="score-badge">Nota: ${can}</div>
+    </div>
+    <div class="result-item">
+      <div class="result-value">${pre}</div>
+      <div class="result-label">Fontes de Pressão</div>
+      <div class="score-badge">Nota: ${pre}</div>
+    </div>
+    <div class="result-item">
+      <div class="result-value">${esg}</div>
+      <div class="result-label">Sinais de Esgotamento</div>
+      <div class="score-badge">Nota: ${esg}</div>
+    </div>
+    <div class="result-item">
+      <div class="result-value">${aut}</div>
+      <div class="result-label">Autocuidado</div>
+      <div class="score-badge">Nota: ${aut}</div>
+    </div>
+  `;
+  
+  document.getElementById('resultsGrid').innerHTML = resultsGrid;
+  
   document.getElementById('questionario').style.display = 'none';
   document.getElementById('resultado').style.display = 'block';
   window.scrollTo(0, 0);
 }
 
-function criarCategoria(titulo, percentual, descricao, mensagens) {
+function criarCategoria(titulo, nota, descricao, mensagens) {
   let nivel, mensagem, cor;
   
-  if (percentual <= 40) {
+  if (nota <= 4) {
     nivel = 'Baixo';
     mensagem = mensagens[0];
     cor = 'low';
-  } else if (percentual <= 70) {
+  } else if (nota <= 7) {
     nivel = 'Médio';
     mensagem = mensagens[1];
     cor = 'medium';
@@ -1194,8 +952,9 @@ function criarCategoria(titulo, percentual, descricao, mensagens) {
       <h3>${titulo}</h3>
       <p><strong>${nivel}</strong> - ${descricao}</p>
       <div class="progress-bar">
-        <div class="progress-fill" style="width: ${percentual}%"></div>
+        <div class="progress-fill" style="width: ${(nota/10)*100}%"></div>
       </div>
+      <p><strong>Nota: ${nota}/10</strong></p>
       <p><strong>Reflexão:</strong> ${mensagem}</p>
     </div>
   `;
@@ -1205,18 +964,10 @@ function voltarQuestionario() {
   document.getElementById('resultado').style.display = 'none';
   document.getElementById('questionario').style.display = 'block';
   
-  // Limpar seleções e respostas
+  // Limpar seleções
   document.querySelectorAll('.option').forEach(opt => {
     opt.classList.remove('selected');
   });
-  
-  respostas = {
-    expectativa: [],
-    cansaco: [],
-    pressao: [],
-    esgotamento: [],
-    autocuidado: []
-  };
   
   document.getElementById('calcularBtn').disabled = true;
   document.getElementById('statusMessage').textContent = "⚠️ Responda todas as 25 questões para ver seus resultados";
@@ -1224,12 +975,6 @@ function voltarQuestionario() {
   
   window.scrollTo(0, 0);
 }
-
-// Event listener para o botão calcular
-document.getElementById('calcularBtn').addEventListener('click', calcularResultados);
-
-// Inicializar status
-verificarCompletude();
 </script>
 
 </body>
